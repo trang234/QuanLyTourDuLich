@@ -1,0 +1,32 @@
+I/. Set up mysql-client
+
+   - Step 1: download mysqlclient-1.3.10.tar.gz
+   - Step 2: tar -xvf mysqlclient-1.3.10.tar.gz
+   - Step 3: cd mysqlclient-1.3.10
+   - Step 4: python3 setup.py build
+
+II/. File settings.py 
+
+
+	DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'testdatabase',		// name database
+        'USER': 'root',
+        'PASSWORD': '',				// your pass
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
+
+
+III/. Create database in mysql 
+
+	CREATE DATABASE testdatabase;
+
+IV/.  Terminal 
+
+	- Step 1: python3 manage.py syncdb
+	- Step 2: python3 manage.py migrate
+
+	
