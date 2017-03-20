@@ -18,7 +18,6 @@ class Tour(models.Model):
 	ngaybatdau = models.DateTimeField()
 	ngayketthuc = models.DateTimeField()
 
-
 	trangthaitour_choice = (
 		('CHUA_DI', 'Chưa đi'),
         ('DANG_DI', 'Đang đi'),
