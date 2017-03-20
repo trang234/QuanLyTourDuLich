@@ -18,16 +18,17 @@ class Tour(models.Model):
 	madiadiemden = models.ForeignKey(DiaDiem, related_name='madiadiemden', null=True, on_delete=models.CASCADE)
 	ngaybatdau = models.DateTimeField()
 	ngayketthuc = models.DateTimeField()
+	loaitour = models.ManyToManyField(LoaiTour, through='LoaiTour_Tour', on_delete=models.CASCADE)
 	nhanvien = models.ManyToManyField(Tour, on_delete=models.CASCADE)
 
-	trangthaitour_choice = (
+	trangthaitour_choices = (
 		('CHUA_DI', 'Chưa đi'),
         ('DANG_DI', 'Đang đi'),
         ('DA_DI', 'Đã đi'),
 		)
 	trangthai = models.CharField(
         max_length=10,
-        choices=trangthaitour_choice,
+        choices=trangthaitour_choices,
         default='CHUA_DI',
     )
 
@@ -35,9 +36,18 @@ class Tour(models.Model):
 		return self.tentour
 
 class LoaiTour(models.Model):
-	maloaitour = models.CharField(max_length=5, primary_key=True)
+	maloaitour_choices = (
+		('TL000', 'TL000-LE'),
+		('TD000', 'TD000-DOAN')
+		)
+	maloaitour = models.CharField(
+		max_length=5, 
+		primary_key=True,
+		choices=maloaitour_choices,
+		default='TL000'
+		)
+
 	tenloaitour = models.CharField(max_length=50)
-	tour = models.ManyToManyField(Tour, through='LoaiTour_Tour')
 
 	def __str__(self):
 		return self.tenloaitour
@@ -50,6 +60,27 @@ class LoaiTour_Tour(models.Model):
 class PhuongTienDiChuyen(models.Model):
 	maphuongtien = models.CharField(max_length=5, primary_key=True)
 	tenphuongtien = models.CharField(max_length=50)
-	socho = models.PositiveIntegerField()
-	loaiphuongtien = models.CharField(max_length=50)
+
+	loaiphuongtien_choices = (
+    	('XE_OTO', 'xeoto').
+    	('TAU_HOA', 'Tauhoa'),
+    	('MAY_BAY', 'Maybay'),
+    	)
+	loaiphuongtien = models.CharField(
+		max_length=50,
+		choices=loaiphuongtien_choices,
+		default='XE_OTO',
+		)
+
+	socho_choices = (
+		(7, 7),
+        (16, 16),
+        (32, 32),
+        (50, 50)
+		)
+	socho = models.PositiveIntegerField(
+        choices=socho_choices,
+        default=50,
+    )
+	
 	matour = models.ForeignKey(Tour, on_delete=models.CASCADE)
