@@ -1,5 +1,5 @@
 from django.db import models
-from QuanLyNhanVien import NhanVien
+from QuanLyNhanVien.models import NhanVien
 
 # Create your models here.
 class DiaDiem(models.Model):
