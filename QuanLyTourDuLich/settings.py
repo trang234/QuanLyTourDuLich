@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'QuanLyTourDuLich.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'QUANLYTOUR',
+        'NAME': 'QUANLYTOURDULICH',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',
