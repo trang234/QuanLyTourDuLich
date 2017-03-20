@@ -1,4 +1,5 @@
 from django.db import models
+from QuanLyNhanVien import NhanVien
 
 # Create your models here.
 class DiaDiem(models.Model):
@@ -17,6 +18,7 @@ class Tour(models.Model):
 	madiadiemden = models.ForeignKey(DiaDiem, related_name='madiadiemden', null=True, on_delete=models.CASCADE)
 	ngaybatdau = models.DateTimeField()
 	ngayketthuc = models.DateTimeField()
+	nhanvien = models.ManyToManyField(Tour, on_delete=models.CASCADE)
 
 	trangthaitour_choice = (
 		('CHUA_DI', 'Chưa đi'),
@@ -26,7 +28,7 @@ class Tour(models.Model):
 	trangthai = models.CharField(
         max_length=10,
         choices=trangthaitour_choice,
-        default='CHUADI',
+        default='CHUA_DI',
     )
 
 	def  __str__(self):
