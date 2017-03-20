@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'QuanLyTour',
     'QuanLyNhanVien',
     'QuanLyHopDong',
-    'QuanLyKhachHang'
+    'QuanLyKhachHang',
     'webapp',
 
     'django.contrib.admin',
