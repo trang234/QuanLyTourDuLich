@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="vn">
+	<head>
+		<title>About</title>
+		<meta charset="utf-8">
+		<meta name="format-detection" content="telephone=no" />
+		<link rel="icon" href="{% static 'images/favicon.ico' %}">
+		<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
+		<link rel="stylesheet" href="{% static 'booking/css/booking.css' %}">
+		<link rel="stylesheet" href="{% static 'css/camera.css' %}">
+		<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+		<script src="{% static 'js/jquery.js' %}"></script>
+		<script src="{% static 'js/jquery-migrate-1.2.1.js' %}"></script>
+		<script src="{% static 'js/script.js' %}"></script>
+		<script src="{% static 'js/superfish.js' %}"></script>
+		<script src="{% static 'js/jquery.ui.totop.js' %}"></script>
+		<script src="{% static 'js/jquery.equalheights.js' %}"></script>
+		<script src="{% static 'js/jquery.mobilemenu.js' %}"></script>
+		<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+		<script src="{% static 'js/owl.carousel.js' %}"></script>
+		<script src="{% static 'js/camera.js' %}"></script>
+		<!--[if (gt IE 9)|!(IE)]><!-->
+		<script src="{% static 'js/jquery.mobile.customized.min.js' %}"></script>
+		<!--<![endif]-->
+		<script src="{% static 'booking/js/booking.js' %}"></script>
+		<script>
+			$(document).ready(function(){
+			jQuery('#camera_wrap').camera({
+				loader: false,
+				pagination: false ,
+				minHeight: '444',
+				thumbnails: false,
+				height: '48.375%',
+				caption: true,
+				navigation: true,
+				fx: 'mosaic'
+			});
+			/*carousel*/
+			var owl=$("#owl");
+				owl.owlCarousel({
+				items : 2, //10 items above 1000px browser width
+				itemsDesktop : [995,2], //5 items between 1000px and 901px
+				itemsDesktopSmall : [767, 2], // betweem 900px and 601px
+				itemsTablet: [700, 2], //2 items between 600 and 0
+				itemsMobile : [479, 1], // itemsMobile disabled - inherit from itemsTablet option
+				navigation : true,
+				pagination : false
+				});
+			$().UItoTop({ easingType: 'easeOutQuart' });
+			});
+		</script>
+		<!--[if lt IE 8]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+				<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<link rel="stylesheet" media="screen" href="css/ie.css">
+		<![endif]-->
+	</head>
+	<body class="page1" id="top">
+<!--==============================header=================================-->
+		<header>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="menu_block">
+						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
+							<ul class="sf-menu">
+								<li class="current"><a href="{% url 'index.html' %}">TRANG CHỦ</a></li>
+								<li><a href="{% url 'index-1.html' %}">TOUR</a></li>
+								<li><a href="{% url 'index-2.html' %}">HỢP ĐỒNG</a></li>
+								<li><a href="{% url 'index-3.html' %}">ĐĂNG NHẬP</a></li>
+								<li><a href="{% url 'index-4.html' %}">LIÊN HỆ</a></li>
+							</ul>
+						</nav>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="grid_12">
+					<h1>
+						<a href="{% url 'index.html' %}">
+					
+							<img src="{% static 'images.logo.png' %}" alt="Your Happy Family">
+						</a>
+					</h1>
+				</div>
+			</div>
+		</header>
+		<div class="slider_wrapper">
+			<div id="camera_wrap" class="">
+				<div data-src="{% static 'images/slide.jpg' %}">
+					<div class="caption fadeIn">
+						<h2>LONDON</h2>
+						<div class="price">
+							FROM
+							<span>$1000</span>
+						</div>
+						<a href="#">LEARN MORE</a>
+					</div>
+				</div>
+				<div data-src="{% static 'images/slide1.jpg' %}">
+					<div class="caption fadeIn">
+						<h2>Maldives</h2>
+						<div class="price">
+							FROM
+							<span>$2000</span>
+						</div>
+						<a href="#">LEARN MORE</a>
+					</div>
+				</div>
+				<div data-src="{% static 'images/slide2.jpg' %}">
+					<div class="caption fadeIn">
+						<h2>Venice</h2>
+						<div class="price">
+							FROM
+							<span>$1600</span>
+						</div>
+						<a href="#">LEARN MORE</a>
+					</div>
+				</div>
+			</div>
+		</div>
+<!--==============================Content=================================-->
+		<div class="content">
+		<div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+			<div class="container_12">
+				<div>
+
+
+            <script type="text/javascript">
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdatePanel1','UpdatePanel1'], [], [], 90, '');
+
+</script>
+
+
+
+
+            <table cellpadding="0" cellspacing="0" style="border: 2px solid #FF0066; margin-right: auto;  margin-left: auto; width: 960px; height: auto">
+                <tbody><tr>
+                    <td></td>
+                    <td colspan="3" style="padding: 20px 10px 15px 10px; font-size: xx-large; text-align: center; vertical-align: middle; font-weight: bold;">THÔNG TIN BOOKING</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="padding: 7px; vertical-align: middle; text-align: left; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B; background-color: #F3285B; width: 150px; color: #FFFFFF; font-weight: bold;">Dịch vụ</td>
+                    <td style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B; vertical-align: middle; text-align: center; width: 5px;"></td>
+                    <td style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B; vertical-align: middle; text-align: right; padding-right: 5px;">
+                        
+
+
+                        <select id="my_selection">
+                            <option value="Tour thông thường" href="#">Tour thông thường</option>
+                            <option value="Tour theo yếu cầu" href="{% url 'dattour.html' %}">Tour theo yếu cầu</option>
+                        </select>
+
+                        <script>
+                            document.getElementById('my_selection').onchange = function () {
+                                window.location.href = this.children[this.selectedIndex].getAttribute('href');
+                            }
+                        </script>
+
+
+
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="height: 7px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Mã tour :</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; text-decoration: none;">55693</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Tên tour : </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; color: #0000CC;">Tour Du Lịch Đà Lạt 3 Ngày 3 Đêm</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Tiêu chuẩn : </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">2&nbsp;sao</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Số ngày đi tour : </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">3 Ngày - 3 Đêm&nbsp;&nbsp;   |&nbsp;&nbsp; Phương tiện : <i class="fa fa-car"></i> </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="height: 7px"></td>
+                    <td style="vertical-align: middle; text-align: right; padding-right: 20px;"></td>
+                    <td style="vertical-align: middle; text-align: right; padding-right: 20px;"><span style="font-size: small; font-style: italic; text-decoration: none"></span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="width: 10px"></td>
+                    <td style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B; background-color: #F3285B; vertical-align: middle; text-align: left; padding: 7px; width: 150px; color: #FFFFFF; font-weight: bold;">Chi tiết booking</td>
+                    <td style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B"></td>
+                    <td style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B"></td>
+                    <td style="width: 10px"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="height: 7px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Số booking : </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"><strong>1703194424</strong><em style="font-size: small; text-decoration: none; font-style: italic; color: #F3285B;"> (Quý khách vui lòng nhớ số booking để tiện cho các giao dịch sau này)</em></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Số lượng khách :</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <label for="txtAdults">
+                            <i>
+                                <select name="DropDownList_songuoilon" id="DropDownList_songuoilon" class="auto-style271" style="background-color:#FFFFCC;height:30px;width:77px;">
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+	<option value="15">15</option>
+	<option value="16">16</option>
+	<option value="17">17</option>
+	<option value="18">18</option>
+	<option value="19">19</option>
+	<option value="20">20</option>
+	<option value="21">21</option>
+	<option value="22">22</option>
+	<option value="23">23</option>
+	<option value="24">24</option>
+	<option value="25">25</option>
+	<option value="26">26</option>
+	<option value="27">27</option>
+	<option value="28">28</option>
+	<option value="29">29</option>
+	<option value="30">30</option>
+	<option value="31">31</option>
+	<option value="32">32</option>
+	<option value="33">33</option>
+	<option value="34">34</option>
+	<option value="35">35</option>
+	<option value="36">36</option>
+	<option value="37">37</option>
+	<option value="38">38</option>
+	<option value="39">39</option>
+	<option value="40">40</option>
+	<option value="41">41</option>
+	<option value="42">42</option>
+	<option value="43">43</option>
+	<option value="44">44</option>
+	<option value="45">45</option>
+
+</select>
+                            </i>
+                        </label>
+                        &nbsp;người lớn&nbsp;&nbsp; &nbsp; 
+                            <label for="txtAdults">
+                                <i>
+                                    <select name="DropDownList_sotreem" id="DropDownList_sotreem" class="auto-style272" style="background-color:#FFFFCC;height:30px;width:77px;">
+	<option value="0">0</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+	<option value="15">15</option>
+	<option value="16">16</option>
+	<option value="17">17</option>
+	<option value="18">18</option>
+	<option value="19">19</option>
+	<option value="20">20</option>
+	<option value="21">21</option>
+	<option value="22">22</option>
+	<option value="23">23</option>
+	<option value="24">24</option>
+	<option value="25">25</option>
+	<option value="26">26</option>
+	<option value="27">27</option>
+	<option value="28">28</option>
+	<option value="29">29</option>
+	<option value="30">30</option>
+	<option value="31">31</option>
+	<option value="32">32</option>
+	<option value="33">33</option>
+	<option value="34">34</option>
+	<option value="35">35</option>
+	<option value="36">36</option>
+	<option value="37">37</option>
+	<option value="38">38</option>
+	<option value="39">39</option>
+	<option value="40">40</option>
+	<option value="41">41</option>
+	<option value="42">42</option>
+	<option value="43">43</option>
+	<option value="44">44</option>
+	<option value="45">45</option>
+
+</select>
+                                    &nbsp;</i></label>Trẻ em<label for="txtAdults"><i>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <select name="DropDownList_sotrenho" id="DropDownList_sotrenho" class="auto-style273" style="background-color:#EFEFEF;height:30px;width:77px;">
+	<option value="0">0</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	<option value="13">13</option>
+	<option value="14">14</option>
+	<option value="15">15</option>
+	<option value="16">16</option>
+	<option value="17">17</option>
+	<option value="18">18</option>
+	<option value="19">19</option>
+	<option value="20">20</option>
+
+</select>
+                                    </i>
+                                    </label>
+                        &nbsp;Em bé&nbsp; <span style="font-size: small; text-decoration: none; font-style: italic; color: #F3285B;">( em bé &lt; 5 tuổi ) </span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Giá tour người lớn :</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-size: x-large; white-space: nowrap; word-spacing: normal; letter-spacing: 1px; font-weight: normal;">1,590,000</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Giá tour trẻ em :</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-size: large;">1,150,000</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Mã giảm giá : </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <label for="txtAdults">
+                            <i>
+                                <span>
+
+                                    <label style="width: 287px; font-weight: normal; text-decoration: none;">
+                                        <span id="RequiredFieldValidator7" style="font-size:medium;visibility:hidden;">*</span></label>
+
+                                </span></i>
+                        </label>
+                    </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+
+
+
+                        <input name="TextBox_magiamgia" type="text" value="0" maxlength="6" id="TextBox_magiamgia" style="height:25px;width:70px;">
+
+                        
+
+                        <span id="Label3"></span>
+                        <label style="width: 287px; font-weight: normal; text-decoration: none; color: #F3285B; font-size: small; font-style: italic;">
+                            &nbsp;Nếu bạn có mã giảm giá thì nhập vào ô này . Lưu ý mỗi mã chỉ sử dụng 1 lần duy nhất</label>
+
+
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Ngày đi tour :</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <label for="txtAdults">
+                            <i>
+                                <span>
+
+                                    <label style="width: 287px; font-weight: normal; text-decoration: none;">
+                                        <span id="RequiredFieldValidator8" style="font-size:medium;visibility:hidden;">*</span></label>
+
+                                </span></i>
+                        </label>
+                    </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+
+                        
+
+
+
+
+
+                            <span class="Zebra_DatePicker_Icon_Wrapper" style="display: inline-block; position: relative; float: none; top: auto; right: auto; bottom: auto; left: auto;"><input name="TextBox_ngaydi" type="text" maxlength="10" id="TextBox_ngaydi" style="color: rgb(0, 0, 204); font-weight: bold; height: 25px; width: 210px; position: relative; top: auto; right: auto; bottom: auto; left: auto;" readonly="readonly"><button type="button" class="Zebra_DatePicker_Icon Zebra_DatePicker_Icon_Inside_Right" style="top: 7.5px; right: 0px;">Pick a date</button></span>
+
+                               
+
+
+                        
+                        <script src="/JS/lich/jquery-1.12.0.js"></script>
+                        <script src="/JS/lich/zebra_datepicker.js"></script>
+                        <script src="/JS/lich/core.js"></script>
+
+
+
+
+
+
+
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="height: 7px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="padding: 7px; vertical-align: middle; text-align: left; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B; background-color: #F3285B; width: 150px; color: #FFFFFF; font-weight: bold;">Thông tin liên lạc</td>
+                    <td style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B;"></td>
+                    <td style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right; height: 7px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Quý danh :</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <select name="DropDownList_gioithinh" id="DropDownList_gioithinh" class="auto-style274" style="height:30px;width:77px;">
+	<option value="Nam">Anh</option>
+	<option value="Nữ">Chị</option>
+
+</select>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Họ và tên : </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+
+
+
+                        <label for="txtAdults">
+                            <i>
+                                <span>
+
+                                    <label style="width: 287px; font-weight: normal; text-decoration: none;">
+                                        <span id="RequiredFieldValidator9" style="font-size:medium;visibility:hidden;">*</span></label>
+
+                                </span></i>
+                        </label>
+
+
+
+                    </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <input name="TextBox_ten" type="text" id="TextBox_ten" style="height:25px;width:250px;">
+                        &nbsp; &nbsp; &nbsp;Công ty
+                         <input name="TextBox_congty" type="text" id="TextBox_congty" style="height:25px;width:385px;"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Địa chỉ : </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <label for="txtAddress">
+                            <i>
+                                <span id="RequiredFieldValidator3" style="font-size:medium;visibility:hidden;">*</span></i></label>
+                    </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <input name="TextBox_diachi" type="text" id="TextBox_diachi" style="height:25px;width:98%;">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right">&nbsp;</td>
+                    <td style="vertical-align: middle; text-align: right">Khu vực :</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">&nbsp;</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+
+                        <div id="UpdatePanel1">
+	
+
+
+
+
+                                <table cellpadding="0" cellspacing="0" style="width: 98%; float: left">
+                                    <tbody><tr>
+                                        <td style="width: 182px; vertical-align: middle">
+                                            <select name="DropDownList_Tinhthanh" onchange="javascript:setTimeout('__doPostBack(\'DropDownList_Tinhthanh\',\'\')', 0)" id="DropDownList_Tinhthanh" style="font-size:Medium;height:30px;width:250px;">
+		<option selected="selected" value="125">Tp. Hà Nội</option>
+		<option value="144">Tp. Đà Nẵng</option>
+		<option value="95">Tp. Hồ Chí Minh</option>
+		<option value="110">Tỉnh Cà mau</option>
+		<option value="107">Tp. Cần Thơ</option>
+		<option value="106">Tỉnh An Giang</option>
+		<option value="101">Tỉnh Bến Tre</option>
+		<option value="89">Tỉnh Lâm Đồng</option>
+		<option value="145">Tỉnh Quảng Nam</option>
+		<option value="140">Tỉnh Thừa Thiên Huế</option>
+		<option value="111">Tỉnh Kiên Giang</option>
+		<option value="97">Tỉnh Bà Rịa - Vũng Tàu</option>
+		<option value="120">Tỉnh Thái Nguyên</option>
+		<option value="121">Tỉnh Lạng Sơn</option>
+		<option value="122">Tỉnh Sơn La</option>
+		<option value="123">Tỉnh Phú Thọ</option>
+		<option value="124">Tỉnh Vĩnh Phúc</option>
+		<option value="104">Tỉnh Trà Vinh</option>
+		<option value="105">Tỉnh Vĩnh Long</option>
+		<option value="96">Tỉnh Đồng Nai</option>
+		<option value="126">Tỉnh Bắc Ninh</option>
+		<option value="127">Tỉnh Bắc Giang</option>
+		<option value="128">Tỉnh Quảng Ninh</option>
+		<option value="129">Tỉnh Hải Phòng</option>
+		<option value="130">Tỉnh Hải Dương</option>
+		<option value="131">Tỉnh Hà Nam</option>
+		<option value="132">Tỉnh Nam Định</option>
+		<option value="133">Tỉnh Thái Bình</option>
+		<option value="134">Tỉnh Ninh Bình</option>
+		<option value="135">Tỉnh Thanh Hoá</option>
+		<option value="136">Tỉnh Nghệ An</option>
+		<option value="137">Tỉnh Hà Tĩnh</option>
+		<option value="138">Tỉnh Quảng Bình</option>
+		<option value="139">Tỉnh Quảng Trị</option>
+		<option value="98">Tỉnh Long An</option>
+		<option value="99">Tỉnh Đồng Tháp</option>
+		<option value="100">Tỉnh Tiền Giang</option>
+		<option value="90">Tỉnh Ninh Thuận</option>
+		<option value="91">Tỉnh Bình Thuận</option>
+		<option value="92">Tỉnh Tây Ninh</option>
+		<option value="93">Tỉnh Bình Phước</option>
+		<option value="112">Tỉnh Hà Giang</option>
+		<option value="113">Tình Cao Bằng</option>
+		<option value="114">Tỉnh Hà Giang</option>
+		<option value="115">Tỉnh Lai Châu</option>
+		<option value="116">Tỉnh Lào Cai</option>
+		<option value="117">Tỉnh Yên Bái</option>
+		<option value="118">Tỉnh Tuyên Quang</option>
+		<option value="119">Tỉnh Bắc Kạn</option>
+		<option value="108">Tỉnh Sóc Trăng</option>
+		<option value="109">Tỉnh Bạc Liêu</option>
+		<option value="146">Tỉnh Quảng Ngãi</option>
+		<option value="147">Tỉnh Bình Định</option>
+		<option value="148">Tỉnh Phú Yên</option>
+		<option value="149">Tỉnh Khánh Hoà</option>
+		<option value="150">Tỉnh Kom Tum</option>
+		<option value="151">Tỉnh Gia Lai</option>
+		<option value="152">Tình Dak Lak</option>
+		<option value="94">Tỉnh Bình Dương</option>
+		<option value="153">Tỉnh Hậu Giang</option>
+		<option value="154">Biên Hòa</option>
+		<option value="155">huyện nhà bè</option>
+
+	</select>
+                                        </td>
+                                        <td style="vertical-align: middle; text-align: left; padding-left: 3px;">
+                                            <select name="DropDownList_Quanhuyen" id="DropDownList_Quanhuyen" style="font-size:Medium;height:30px;width:250px;">
+		<option value="986">Huyện Ba Vì</option>
+		<option value="990">Huyện Chương Mỹ</option>
+		<option value="991">Huyện Đan Phượng</option>
+		<option value="982">Huyện Đông Anh</option>
+		<option value="981">Huyện Gia Lâm</option>
+		<option value="992">Huyện Hoài Đức</option>
+		<option value="998">Huyện Mê Linh</option>
+		<option value="994">Huyện Mỹ Đức</option>
+		<option value="997">Huyện Phú Xuyên</option>
+		<option value="987">Huyện Phúc Thọ</option>
+		<option value="989">Huyện Quốc Oai</option>
+		<option value="983">Huyện Sóc Sơn</option>
+		<option value="988">Huyện Thạch Thất</option>
+		<option value="993">Huyện Thanh Oai</option>
+		<option value="980">Huyện Thanh Trì</option>
+		<option value="996">Huyện Thường Tín</option>
+		<option value="979">Huyện Từ Liêm</option>
+		<option value="995">Huyện Ứng Hoà</option>
+		<option value="970">Quận Ba Đình</option>
+		<option value="975">Quận Cầu Giấy</option>
+		<option value="973">Quận Đống Đa</option>
+		<option value="984">Quận Hà Đông</option>
+		<option value="972">Quận Hai Bà Trưng</option>
+		<option value="971">Quận Hoàn Kiếm</option>
+		<option value="977">Quận Hoàng Mai</option>
+		<option value="978">Quận Long Biên</option>
+		<option value="974">Quận Tây Hồ</option>
+		<option value="976">Quận Thanh Xuân</option>
+		<option value="985">Thị xã Sơn Tây</option>
+
+	</select>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+
+
+                            
+</div>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Điện thoại : </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <label for="txtPhone">
+                            <span id="RequiredFieldValidator6" style="font-size:medium;visibility:hidden;">*</span>
+                        </label>
+                    </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <input name="TextBox_dienthoai" type="text" id="TextBox_dienthoai" style="height:25px;width:98%;">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Email : </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <label for="txtEmail">
+                            <i>
+                                <span id="RequiredFieldValidator2" style="font-size:medium;visibility:hidden;">*</span>
+                                <span id="RegularExpressionValidator6" style="font-family:Arial, Helvetica, sans-serif;font-size:small;visibility:hidden;">*</span></i></label>
+                    </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <input name="TextBox_email" type="text" id="TextBox_email" style="height:25px;width:250px;">
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Ghi chú : </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-style: italic; text-decoration: none;"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-style: italic; text-decoration: none;">
+                        <label for="txtAdults">
+                            <i>
+                                <textarea name="TextBox_ghichubooking" rows="2" cols="20" id="TextBox_ghichubooking" class="auto-style275" style="height:100px;width:98%;"></textarea>
+                            </i>
+                        </label>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right">&nbsp;</td>
+                    <td style="vertical-align: middle; text-align: right">
+
+
+
+
+                        <label for="txtSex">Bạn biết đến từ :</label></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-style: italic; text-decoration: none;">&nbsp;</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-style: italic; text-decoration: none;">
+
+                        <select name="DropDownList_nhom" id="DropDownList_nhom" style="color:#0000CC;font-size:Medium;font-weight:bold;height:30px;">
+	<option selected="selected" value="Nhân viên tư vấn">Nhân viên tư vấn</option>
+	<option value="Tìm kiếm Google">Tìm kiếm Google</option>
+	<option value="Tìm kiếm Yahoo!">Tìm kiếm Yahoo!</option>
+	<option value="Tìm kiếm Bing">Tìm kiếm Bing</option>
+	<option value="Quảng cáo Tivi">Quảng cáo Tivi</option>
+	<option value="Quảng cáo báo giấy">Quảng cáo báo giấy</option>
+	<option value="Bạn bè giới thiệu">Bạn bè giới thiệu</option>
+	<option value="Từ website khác">Từ website khác</option>
+	<option value="Facebook">Facebook</option>
+	<option value="Youtube">Youtube</option>
+	<option value="Mạng xã hội khác">Mạng xã hội khác</option>
+
+</select>
+
+                        
+
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="height: 7px;"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="padding: 7px; vertical-align: middle; text-align: left; border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B; background-color: #F3285B; width: 150px; color: #FFFFFF; font-weight: bold;">Nhắc bạn ?</td>
+                    <td style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B"></td>
+                    <td style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="padding: 10px; vertical-align: top; font-size: small; font-weight: normal; font-style: italic; text-decoration: none; color: #333333;" colspan="3">Hãy để lại thông tin chính xác để nhân viên của chúng tôi liên hệ lại cho bạn trong thời gian sớm nhất<br>
+                        Booking có giá trị khi được nhân viên xác nhận !<br>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right">&nbsp;</td>
+                    <td style="padding: 10px; vertical-align: middle; text-align: center;" colspan="3">
+                        <input type="submit" name="Button1" value="ĐẶT TOUR" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;Button1&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="Button1" style="width:150px;height:40px;font-weight:bold;font-size:Medium;color:White;border-width:0px;border-style:None;border-color:#0000CC;background-color:#009933;">
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right">&nbsp;</td>
+                    <td style="padding: 6px 10px 10px 10px; vertical-align: top;" colspan="3">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right" colspan="3"></td>
+                    <td></td>
+                </tr>
+            </tbody></table>
+
+
+            
+        </div>
+				
+			</div>
+		</div>
+		
+<!--==============================footer=================================-->
+		<footer>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="socials">
+						<a href="#" class="fa fa-facebook"></a>
+						<a href="#" class="fa fa-twitter"></a>
+						<a href="#" class="fa fa-google-plus"></a>
+					</div>
+					<div class="copy">
+						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script>
+			$(function (){
+				$('#bookingForm').bookingForm({
+					ownerEmail: '#'
+				});
+			})
+			$(function() {
+				$('#bookingForm input, #bookingForm textarea').placeholder();
+			});
+		</script>
+	</body>
+</html>
+
