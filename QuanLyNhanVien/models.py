@@ -6,7 +6,7 @@ class PhongBan(models.Model):
 	maphongban = models.CharField(max_length=5, primary_key=True)
 	tenphongban = models.CharField(max_length=50)
 	def __str__(self):
-		return self.tenphongban
+		return self.maphongban + " " +self.tenphongban
 
 
 class NhanVien(models.Model):
@@ -19,3 +19,5 @@ class NhanVien(models.Model):
 	sodienthoai = models.PositiveIntegerField()
 	chucvu = models.CharField(max_length=50)
 	maphongban = models.ForeignKey(PhongBan, on_delete=models.CASCADE)
+	def __str__(self):
+		return self.manhanvien + " " + self.tennhanvien
