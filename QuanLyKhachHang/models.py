@@ -12,8 +12,8 @@ class KhachHang(models.Model):
 	diachi = models.CharField(max_length=50)
 	sodienthoai = models.PositiveIntegerField()
 	tour = models.ManyToManyField(Tour, through='KhachHang_Tour')
-    def __str__(self):
-    	return self.makhachhang + " " + self.tenkhachhang
+	def __str__(self):
+		return self.makhachhang + " " + self.tenkhachhang
 
 class PhuLucKhachHang(models.Model):
 	maphuluckhachhang = models.CharField(max_length=5, primary_key=True)
