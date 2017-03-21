@@ -11,30 +11,6 @@ class DiaDiem(models.Model):
 	def __str__(self):
 		return self.tendiadiem
 
-class Tour(models.Model):
-	matour = models.CharField(max_length=5, primary_key=True)
-	tentour = models.CharField(max_length=50)
-	madiadiemdi = models.ForeignKey(DiaDiem, related_name='madiadiemdi', null=True, on_delete=models.CASCADE)
-	madiadiemden = models.ForeignKey(DiaDiem, related_name='madiadiemden', null=True, on_delete=models.CASCADE)
-	ngaybatdau = models.DateTimeField()
-	ngayketthuc = models.DateTimeField()
-	loaitour = models.ManyToManyField(LoaiTour, through='LoaiTour_Tour', on_delete=models.CASCADE)
-	nhanvien = models.ManyToManyField(Tour, on_delete=models.CASCADE)
-
-	trangthaitour_choices = (
-		('CHUA_DI', 'Chưa đi'),
-        ('DANG_DI', 'Đang đi'),
-        ('DA_DI', 'Đã đi'),
-		)
-	trangthai = models.CharField(
-        max_length=10,
-        choices=trangthaitour_choices,
-        default='CHUA_DI',
-    )
-
-	def  __str__(self):
-		return self.tentour
-
 class LoaiTour(models.Model):
 	maloaitour_choices = (
 		('TL000', 'TL000-LE'),
@@ -52,19 +28,12 @@ class LoaiTour(models.Model):
 	def __str__(self):
 		return self.tenloaitour
 
-class LoaiTour_Tour(models.Model):
-	tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
-	loaitour = models.ForeignKey(LoaiTour, on_delete=models.CASCADE)
-	giave = models.FloatField()
-
 class PhuongTienDiChuyen(models.Model):
 	maphuongtien = models.CharField(max_length=5, primary_key=True)
 	tenphuongtien = models.CharField(max_length=50)
 
 	loaiphuongtien_choices = (
-    	('XE_OTO', 'xeoto').
-    	('TAU_HOA', 'Tauhoa'),
-    	('MAY_BAY', 'Maybay'),
+    	('XE_OTO', "Xe ô tô"),
     	)
 	loaiphuongtien = models.CharField(
 		max_length=50,
@@ -82,5 +51,34 @@ class PhuongTienDiChuyen(models.Model):
         choices=socho_choices,
         default=50,
     )
-	
-	matour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+
+class Tour(models.Model):
+	matour = models.CharField(max_length=5, primary_key=True)
+	tentour = models.CharField(max_length=50)
+	madiadiemdi = models.ForeignKey(DiaDiem, related_name='madiadiemdi', null=True, on_delete=models.CASCADE)
+	madiadiemden = models.ForeignKey(DiaDiem, related_name='madiadiemden', null=True, on_delete=models.CASCADE)
+	ngaybatdau = models.DateTimeField()
+	ngayketthuc = models.DateTimeField()
+	loaitour = models.ManyToManyField(LoaiTour, through='LoaiTour_Tour')
+	nhanvien = models.ManyToManyField(NhanVien)
+
+	trangthaitour_choices = (
+		('CHUA_DI', "Chưa đi"),
+        ('DANG_DI', "Đang đi"),
+        ('DA_DI', "Đã đi"),
+		)
+	trangthai = models.CharField(
+        max_length=10,
+        choices=trangthaitour_choices,
+        default='CHUA_DI',
+    )
+
+	maphuongtien = models.ForeignKey(PhuongTienDiChuyen, on_delete=models.CASCADE)
+
+	def  __str__(self):
+		return self.tentour
+
+class LoaiTour_Tour(models.Model):
+	tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+	loaitour = models.ForeignKey(LoaiTour, on_delete=models.CASCADE)
+	giave = models.FloatField()
