@@ -11,7 +11,7 @@ class KhachHang(models.Model):
 	gioitinh = models.BooleanField()
 	diachi = models.CharField(max_length=50)
 	sodienthoai = models.PositiveIntegerField()
-	tour = models.ManyToManyField(Tour, through='KhachHang_Tour')
+	tour = models.ManyToManyField(Tour, through='DatVe')
 	def __str__(self):
 		return self.makhachhang + " " + self.tenkhachhang
 
@@ -20,14 +20,15 @@ class PhuLucKhachHang(models.Model):
 	tenphuluckhachhang = models.CharField(max_length=50)
 	cmnd = models.PositiveIntegerField()
 	ngaysinh = models.DateField()
-	gioitinh = models.BooleanField()
+	gioitinh = models.BooleanField(default=True)
 	sodienthoai = models.PositiveIntegerField()
 	makhachhang = models.ForeignKey(KhachHang, on_delete=models.CASCADE)
 	def __str__(self):
 		return self.maphuluckhachhang + " " + self.tenphuluckhachhang
 
-class KhachHang_Tour(models.Model):
+class DatVe(models.Model):
 	matour = models.ForeignKey(Tour, on_delete=models.CASCADE)
 	makhachhang = models.ForeignKey(KhachHang, on_delete=models.CASCADE)
-	soluongvedat = models.PositiveIntegerField()
-	thanhtien = models.FloatField()
+	tennhanvien = models.CharField(max_length=50)
+	soluongvedat = models.PositiveIntegerField(default=0)
+	thanhtien = models.FloatField(default=0)
