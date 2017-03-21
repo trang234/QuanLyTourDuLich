@@ -25,3 +25,9 @@ class PhuLucKhachHang(models.Model):
 	makhachhang = models.ForeignKey(KhachHang, on_delete=models.CASCADE)
 	def __str__(self):
 		return self.maphuluckhachhang + " " + self.tenphuluckhachhang
+
+class KhachHang_Tour(models.Model):
+	matour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+	makhachhang = models.ForeignKey(KhachHang, on_delete=models.CASCADE)
+	soluongvedat = models.PositiveIntegerField()
+	thanhtien = models.FloatField()
