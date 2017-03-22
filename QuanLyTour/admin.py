@@ -6,6 +6,7 @@ from .models import DiaDiem, Tour, LoaiTour, PhuongTienDiChuyen, LoaiTour_Tour
 # DiaDiem
 class DiaDiemAdmin(admin.ModelAdmin):
     list_display = ('tendiadiem', 'mota', 'imgpath')
+    exclude = ['madiadiem']
     search_fields = ['tendiadiem']
     list_filter = ('tendiadiem',)
     ordering = ('-tendiadiem',)
@@ -14,6 +15,7 @@ admin.site.register(DiaDiem, DiaDiemAdmin)
 # Tour
 class TourAdmin(admin.ModelAdmin):
     list_display = ('tentour', 'madiadiemdi', 'madiadiemden', 'ngaybatdau', 'ngayketthuc', 'trangthai', 'maphuongtien')
+    fields = ['matour', 'tentour', ('madiadiemdi', 'madiadiemden'), ('ngaybatdau', 'ngayketthuc'), 'nhanvien','trangthai', 'maphuongtien']
     search_fields = ['tentour', 'ngaybatdau', 'ngayketthuc', 'trangthai']
     list_filter = ('tentour', 'madiadiemdi', 'madiadiemden', 'trangthai',
     	'loaitour', 'nhanvien', 'ngaybatdau', 'ngayketthuc', 'maphuongtien')
@@ -24,6 +26,7 @@ admin.site.register(Tour, TourAdmin)
 # LoaiTour
 class LoaiTourAdmin(admin.ModelAdmin):
     list_display = ('tenloaitour',)
+    exclude = ['maloaitour']
     search_fields = ['tenloaitour',]
     list_filter = ('tenloaitour',)
     ordering = ('tenloaitour',)

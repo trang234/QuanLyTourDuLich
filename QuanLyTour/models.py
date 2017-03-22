@@ -5,13 +5,25 @@ from QuanLyNhanVien.models import NhanVien
 class DiaDiem(models.Model):
 	madiadiem = models.CharField(
 		max_length=5, 
-		primary_key=True, 
-		verbose_name="Mã loại tour"
+		primary_key=True
 		)
 
+	tendiadiem_choices = (
+		("Thành phố Hồ Chí Minh", "Thành phố Hồ Chí Minh"),
+		("Nha Trang", "Nha Trang"),
+		("Vũng Tàu", "Vũng Tàu"),
+		("Phan Thiết", "Phan Thiết"),
+		("Vịnh Hạ Long", "Vịnh Hạ Long"),
+		("Cố Đô Huế", "Cố Đô Huế"),
+		("Phố Cổ Hội An", "Phố Cổ Hội An"),
+		("Đà Nẵng", "Đà Nẵng"),
+		("Hà Nội", "Hà Nội")
+		)
 	tendiadiem = models.CharField(
 		max_length=50,
-		verbose_name="Tên địa điểm"
+		choices=tendiadiem_choices,
+		default="Thành phố Hồ Chí Minh",
+		verbose_name="Địa điểm"
 		)
 
 	mota = models.CharField(
@@ -28,31 +40,51 @@ class DiaDiem(models.Model):
 	def __str__(self):
 		return self.tendiadiem
 
+	def save(self, *args, **kwargs):
+		if self.tendiadiem == "Thành phố Hồ Chí Minh":
+			self.madiadiem = 'DD001'
+		elif self.tendiadiem == "Nha Trang":
+			self.madiadiem = 'DD002'
+		elif self.tendiadiem == "Vũng Tàu":
+			self.madiadiem = 'DD003'
+		elif self.tendiadiem == "Phan Thiết":
+			self.madiadiem = 'DD004'
+		elif self.tendiadiem == "Vịnh Hạ Long":
+			self.madiadiem = 'DD005'
+		elif self.tendiadiem == "Cố Đô Huế":
+			self.madiadiem = 'DD006'
+		elif self.tendiadiem == "Phố Cổ Hội An":
+			self.madiadiem = 'DD007'
+		elif self.tendiadiem == "Đà Nẵng":
+			self.madiadiem = 'DD008'
+		elif self.tendiadiem == "Hà Nội":
+			self.madiadiem = 'DD009'
+		super(DiaDiem, self).save(*args, **kwargs)
+
 class LoaiTour(models.Model):
-	maloaitour_choices = (
-		('TL000', 'TL000-LE'),
-		('TD000', 'TD000-DOAN')
-		)
 	maloaitour = models.CharField(
 		max_length=5, 
 		primary_key=True,
-		choices=maloaitour_choices,
-		default='TL000',
 		verbose_name="Mã loại tour"
+		) 
+	
+	tenloaitour_choices = (
+		("Tour lẻ", "Tour lẻ"),
+		("Tour đoàn", "Tour đoàn")
 		)
-
-	def set_to_tenloaitour(self):
-		if self.tenloaitour == 'TL000':
-			self.tenloaitour = 'TOUR_LE'
-		elif self.maloaitour == 'TD000':
-			self.tenloaitour = 'TOUR_DOAN'
-		return self.tenloaitour
-
 	tenloaitour = models.CharField(
 		max_length=50,
-		verbose_name="Tên loại tour",
-		default=property(set_to_tenloaitour)
+		choices=tenloaitour_choices,
+		default="Tour lẻ",
+		verbose_name="Loại tour"
 		)
+
+	def save(self, *args, **kwargs):
+		if self.tenloaitour == "Tour lẻ":
+			self.maloaitour = 'TL000'
+		elif self.tenloaitour == "Tour đoàn":
+			self.maloaitour = 'TD000'
+		super(LoaiTour, self).save(*args, **kwargs)
 
 	def __str__(self):
 		return self.tenloaitour
@@ -79,12 +111,12 @@ class PhuongTienDiChuyen(models.Model):
 		)
 
 	loaiphuongtien_choices = (
-    	('XE_OTO', "Xe ô tô"),
+    	("Xe ô tô", "Xe ô tô"),
     	)
 	loaiphuongtien = models.CharField(
 		max_length=50,
 		choices=loaiphuongtien_choices,
-		default='XE_OTO',
+		default="Xe ô tô",
 		verbose_name="Loại phương tiện"
 		)
 
@@ -151,14 +183,14 @@ class Tour(models.Model):
 		)
 
 	trangthaitour_choices = (
-		('CHUA_DI', "Chưa đi"),
-        ('DANG_DI', "Đang đi"),
-        ('DA_DI', "Đã đi"),
+		("Chưa đi", "Chưa đi"),
+        ("Đang đi", "Đang đi"),
+        ("Đã đi", "Đã đi"),
 		)
 	trangthai = models.CharField(
         max_length=10,
         choices=trangthaitour_choices,
-        default='CHUA_DI',
+        default="Chưa đi",
         verbose_name="Trạng thái"
     )
 
