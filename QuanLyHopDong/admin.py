@@ -12,7 +12,10 @@ from django.contrib import admin
 
 from .models import HopDong
 
-class SearchAdmin(admin.ModelAdmin):
-    search_fields = ('mahopdong')
+# class SearchHopDongAdmin(admin.ModelAdmin):
+#     search_fields = ('title', 'author__name', 'comments__text', )
+class SearchHopDongAdmin(admin.ModelAdmin):
+    search_fields = ['maloaihopdong']
 
-admin.site.register(HopDong)
+
+admin.site.register(HopDong, SearchHopDongAdmin)
