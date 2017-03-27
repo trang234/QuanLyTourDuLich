@@ -6,8 +6,8 @@ class KhachHangAdmin(admin.ModelAdmin):
 	list_display = (
 		'makhachhang','tenkhachhang', 'cmnd', 'ngaysinh',
 		'gioitinh', 'diachi', 'sodienthoai')
+	search_fields = ['makhachhang','tenkhachhang']
 admin.site.register(KhachHang, KhachHangAdmin)
-
 
 class PhuLucKhachHangAdmin(admin.ModelAdmin):
 	list_display = (
@@ -18,4 +18,5 @@ admin.site.register(PhuLucKhachHang, PhuLucKhachHangAdmin)
 class DatVeAdmin(admin.ModelAdmin):
 	list_display = (
 		'matour','makhachhang', 'tennhanvien', 'soluongvedat', 'thanhtien')
+	readonly_fields = ["thanhtien"]
 admin.site.register(DatVe, DatVeAdmin)

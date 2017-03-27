@@ -1,7 +1,9 @@
 from django.db import models
+from django.http import HttpResponse
+from QuanLyTour.models import Tour, LoaiTour_Tour
+
 # Create your models here.
 # Create: 19-03-2017
-from QuanLyTour.models import Tour
 
 class KhachHang(models.Model):
 	makhachhang = models.CharField(
@@ -14,7 +16,8 @@ class KhachHang(models.Model):
 		verbose_name="Tên khách hàng ")
 
 	cmnd = models.PositiveIntegerField(
-		verbose_name="CMND ")
+		verbose_name="CMND ",
+		unique=True)
 
 	ngaysinh = models.DateField(
 		verbose_name="Ngày sinh ")
@@ -52,7 +55,8 @@ class PhuLucKhachHang(models.Model):
 		verbose_name="Tên khách hàng PL")
 
 	cmnd = models.PositiveIntegerField(
-		verbose_name="CMND ")
+		verbose_name="CMND ",
+		unique=True)
 
 	ngaysinh = models.DateField(
 		verbose_name="Ngày sinh ")
@@ -92,7 +96,28 @@ class DatVe(models.Model):
 	soluongvedat = models.PositiveIntegerField(
 		default=0,
 		verbose_name="Số lượng vé ")
-	
+
+	'''Get tour price'''
+	def get_tour_price():
+		# tour = DatVe._meta.get_field('matour')
+		giave = LoaiTour_Tour.objects.values_list('giave', flat=True).get(tour="T0001")
+		# soluongve = DatVe.objects.filter('soluongvedat')
+		soluongve = 2
+		sotienphaitra = soluongve * giave
+		return sotienphaitra
+
+	# def get_thanh_tien():
+	# 	return 20;
+
+
 	thanhtien = models.FloatField(
-		default=0,
+		# default=property(get_tour_price),
+		# default=0,
+		default=get_tour_price,
 		verbose_name="Thành tiền")
+
+	def sample_view(request):
+		self.tennhanvien = request.user
+
+	def __str__(self):
+		return (self.thanhtien, self.get_gender_display())
