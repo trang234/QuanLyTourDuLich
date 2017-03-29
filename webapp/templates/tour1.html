@@ -154,13 +154,7 @@ Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdate
                     <td style="border-bottom-style: solid; border-bottom-width: 1px; border-bottom-color: #F3285B; vertical-align: middle; text-align: right; padding-right: 5px;">
                         
 
-
-                        <select id="my_selection">
-                            <option value="Tour thông thường" href="#">Tour thông thường</option>
-                            <option value="Tour theo yếu cầu" href="{% url 'dattour.html' %}">Tour theo yếu cầu</option>
-                        </select>
-
-                        <script>
+						<script>
                             document.getElementById('my_selection').onchange = function () {
                                 window.location.href = this.children[this.selectedIndex].getAttribute('href');
                             }
@@ -178,20 +172,25 @@ Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdate
                     <td></td>
                     <td></td>
                 </tr>
+                 {% for user in Users %}
                 <tr>
+                 
                     <td style="vertical-align: middle; text-align: right"></td>
                     <td style="vertical-align: middle; text-align: right">Mã tour :</td>
                     <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
-                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; text-decoration: none;">55693</td>
+                     
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; text-decoration: none;" >{{user.madiadiem}}</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td style="vertical-align: middle; text-align: right"></td>
                     <td style="vertical-align: middle; text-align: right">Tên tour : </td>
                     <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
-                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; color: #0000CC;">Tour Du Lịch Đà Lạt 3 Ngày 3 Đêm</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; color: #0000CC;">{{user.tendiadiem}}</td>
                     <td></td>
                 </tr>
+                	 {% endfor %}
+                    
                 <tr>
                     <td style="vertical-align: middle; text-align: right"></td>
                     <td style="vertical-align: middle; text-align: right">Tiêu chuẩn : </td>
@@ -533,125 +532,17 @@ Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdate
                 </tr>
                 <tr>
                     <td style="vertical-align: middle; text-align: right">&nbsp;</td>
-                    <td style="vertical-align: middle; text-align: right">Khu vực :</td>
-                    <td style="vertical-align: middle; text-align: left; padding: 7px">&nbsp;</td>
+                    <td style="vertical-align: middle; text-align: right">CMND :</td>
                     <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <label for="txtEmail">
+                            <i>
+                                <span id="RequiredFieldValidator2" style="font-size:medium;visibility:hidden;">*</span>
+                                <span id="RegularExpressionValidator6" style="font-family:Arial, Helvetica, sans-serif;font-size:small;visibility:hidden;">*</span></i></label>
+                    </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px">
+                        <input name="TextBox_email" type="text" id="TextBox_email" style="height:25px;width:250px;">
+                    </td>
 
-                        <div id="UpdatePanel1">
-	
-
-
-
-
-                                <table cellpadding="0" cellspacing="0" style="width: 98%; float: left">
-                                    <tbody><tr>
-                                        <td style="width: 182px; vertical-align: middle">
-                                            <select name="DropDownList_Tinhthanh" onchange="javascript:setTimeout('__doPostBack(\'DropDownList_Tinhthanh\',\'\')', 0)" id="DropDownList_Tinhthanh" style="font-size:Medium;height:30px;width:250px;">
-		<option selected="selected" value="125">Tp. Hà Nội</option>
-		<option value="144">Tp. Đà Nẵng</option>
-		<option value="95">Tp. Hồ Chí Minh</option>
-		<option value="110">Tỉnh Cà mau</option>
-		<option value="107">Tp. Cần Thơ</option>
-		<option value="106">Tỉnh An Giang</option>
-		<option value="101">Tỉnh Bến Tre</option>
-		<option value="89">Tỉnh Lâm Đồng</option>
-		<option value="145">Tỉnh Quảng Nam</option>
-		<option value="140">Tỉnh Thừa Thiên Huế</option>
-		<option value="111">Tỉnh Kiên Giang</option>
-		<option value="97">Tỉnh Bà Rịa - Vũng Tàu</option>
-		<option value="120">Tỉnh Thái Nguyên</option>
-		<option value="121">Tỉnh Lạng Sơn</option>
-		<option value="122">Tỉnh Sơn La</option>
-		<option value="123">Tỉnh Phú Thọ</option>
-		<option value="124">Tỉnh Vĩnh Phúc</option>
-		<option value="104">Tỉnh Trà Vinh</option>
-		<option value="105">Tỉnh Vĩnh Long</option>
-		<option value="96">Tỉnh Đồng Nai</option>
-		<option value="126">Tỉnh Bắc Ninh</option>
-		<option value="127">Tỉnh Bắc Giang</option>
-		<option value="128">Tỉnh Quảng Ninh</option>
-		<option value="129">Tỉnh Hải Phòng</option>
-		<option value="130">Tỉnh Hải Dương</option>
-		<option value="131">Tỉnh Hà Nam</option>
-		<option value="132">Tỉnh Nam Định</option>
-		<option value="133">Tỉnh Thái Bình</option>
-		<option value="134">Tỉnh Ninh Bình</option>
-		<option value="135">Tỉnh Thanh Hoá</option>
-		<option value="136">Tỉnh Nghệ An</option>
-		<option value="137">Tỉnh Hà Tĩnh</option>
-		<option value="138">Tỉnh Quảng Bình</option>
-		<option value="139">Tỉnh Quảng Trị</option>
-		<option value="98">Tỉnh Long An</option>
-		<option value="99">Tỉnh Đồng Tháp</option>
-		<option value="100">Tỉnh Tiền Giang</option>
-		<option value="90">Tỉnh Ninh Thuận</option>
-		<option value="91">Tỉnh Bình Thuận</option>
-		<option value="92">Tỉnh Tây Ninh</option>
-		<option value="93">Tỉnh Bình Phước</option>
-		<option value="112">Tỉnh Hà Giang</option>
-		<option value="113">Tình Cao Bằng</option>
-		<option value="114">Tỉnh Hà Giang</option>
-		<option value="115">Tỉnh Lai Châu</option>
-		<option value="116">Tỉnh Lào Cai</option>
-		<option value="117">Tỉnh Yên Bái</option>
-		<option value="118">Tỉnh Tuyên Quang</option>
-		<option value="119">Tỉnh Bắc Kạn</option>
-		<option value="108">Tỉnh Sóc Trăng</option>
-		<option value="109">Tỉnh Bạc Liêu</option>
-		<option value="146">Tỉnh Quảng Ngãi</option>
-		<option value="147">Tỉnh Bình Định</option>
-		<option value="148">Tỉnh Phú Yên</option>
-		<option value="149">Tỉnh Khánh Hoà</option>
-		<option value="150">Tỉnh Kom Tum</option>
-		<option value="151">Tỉnh Gia Lai</option>
-		<option value="152">Tình Dak Lak</option>
-		<option value="94">Tỉnh Bình Dương</option>
-		<option value="153">Tỉnh Hậu Giang</option>
-		<option value="154">Biên Hòa</option>
-		<option value="155">huyện nhà bè</option>
-
-	</select>
-                                        </td>
-                                        <td style="vertical-align: middle; text-align: left; padding-left: 3px;">
-                                            <select name="DropDownList_Quanhuyen" id="DropDownList_Quanhuyen" style="font-size:Medium;height:30px;width:250px;">
-		<option value="986">Huyện Ba Vì</option>
-		<option value="990">Huyện Chương Mỹ</option>
-		<option value="991">Huyện Đan Phượng</option>
-		<option value="982">Huyện Đông Anh</option>
-		<option value="981">Huyện Gia Lâm</option>
-		<option value="992">Huyện Hoài Đức</option>
-		<option value="998">Huyện Mê Linh</option>
-		<option value="994">Huyện Mỹ Đức</option>
-		<option value="997">Huyện Phú Xuyên</option>
-		<option value="987">Huyện Phúc Thọ</option>
-		<option value="989">Huyện Quốc Oai</option>
-		<option value="983">Huyện Sóc Sơn</option>
-		<option value="988">Huyện Thạch Thất</option>
-		<option value="993">Huyện Thanh Oai</option>
-		<option value="980">Huyện Thanh Trì</option>
-		<option value="996">Huyện Thường Tín</option>
-		<option value="979">Huyện Từ Liêm</option>
-		<option value="995">Huyện Ứng Hoà</option>
-		<option value="970">Quận Ba Đình</option>
-		<option value="975">Quận Cầu Giấy</option>
-		<option value="973">Quận Đống Đa</option>
-		<option value="984">Quận Hà Đông</option>
-		<option value="972">Quận Hai Bà Trưng</option>
-		<option value="971">Quận Hoàn Kiếm</option>
-		<option value="977">Quận Hoàng Mai</option>
-		<option value="978">Quận Long Biên</option>
-		<option value="974">Quận Tây Hồ</option>
-		<option value="976">Quận Thanh Xuân</option>
-		<option value="985">Thị xã Sơn Tây</option>
-
-	</select>
-                                        </td>
-                                    </tr>
-                                </tbody></table>
-
-
-                            
-</div>
                     </td>
                     <td>&nbsp;</td>
                 </tr>
@@ -750,7 +641,7 @@ Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdate
                 <tr>
                     <td style="vertical-align: middle; text-align: right">&nbsp;</td>
                     <td style="padding: 10px; vertical-align: middle; text-align: center;" colspan="3">
-                        <input type="submit" name="Button1" value="ĐẶT TOUR" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;Button1&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="Button1" style="width:150px;height:40px;font-weight:bold;font-size:Medium;color:White;border-width:0px;border-style:None;border-color:#0000CC;background-color:#009933;">
+                        <input type="submit" name="Button1" value="ĐẶT TOUR" id="Button1" style="width:150px;height:40px;font-weight:bold;font-size:Medium;color:White;border-width:0px;border-style:None;border-color:#0000CC;background-color:#009933;">
                     </td>
                     <td>&nbsp;</td>
                 </tr>
