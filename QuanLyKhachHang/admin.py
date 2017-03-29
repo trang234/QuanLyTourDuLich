@@ -6,13 +6,14 @@ class KhachHangAdmin(admin.ModelAdmin):
 	list_display = (
 		'makhachhang','tenkhachhang', 'cmnd', 'ngaysinh',
 		'gioitinh', 'diachi', 'sodienthoai')
-	search_fields = ['makhachhang','tenkhachhang']
+	search_fields = ['makhachhang','tenkhachhang', 'cmnd', 'sodienthoai']
 admin.site.register(KhachHang, KhachHangAdmin)
 
 class PhuLucKhachHangAdmin(admin.ModelAdmin):
 	list_display = (
 		'maphuluckhachhang','tenphuluckhachhang', 'cmnd', 'ngaysinh',
 		'gioitinh', 'sodienthoai', 'makhachhang')
+	search_fields = ['maphuluckhachhang','tenphuluckhachhang','cmnd', 'sodienthoai']
 admin.site.register(PhuLucKhachHang, PhuLucKhachHangAdmin)
 
 class DatVeAdmin(admin.ModelAdmin):
