@@ -1,6 +1,11 @@
 from django.db import models
 from QuanLyNhanVien.models import NhanVien
 
+from django.core.exceptions import ValidationError
+from django.utils import timezone 
+
+from django.http import HttpResponse, HttpResponseNotFound
+
 # Create your models here.
 class DiaDiem(models.Model):
 	madiadiem = models.CharField(
@@ -20,7 +25,7 @@ class DiaDiem(models.Model):
 		("Hà Nội", "Hà Nội")
 		)
 	tendiadiem = models.CharField(
-		max_length=50,
+		max_length=100,
 		choices=tendiadiem_choices,
 		default="Thành phố Hồ Chí Minh",
 		verbose_name="Địa điểm"
@@ -30,11 +35,6 @@ class DiaDiem(models.Model):
 		max_length=100,
 		blank=True,
 		verbose_name="Mô tả"
-		)
-
-	imgpath = models.CharField(
-		max_length=50,
-		verbose_name="Đường dẫn hình"
 		)
 
 	def __str__(self):
@@ -182,16 +182,8 @@ class Tour(models.Model):
 		verbose_name="Hướng dẫn viên"
 		)
 
-	trangthaitour_choices = (
-		("Chưa đi", "Chưa đi"),
-        ("Đang đi", "Đang đi"),
-        ("Đã đi", "Đã đi"),
-		)
 	trangthai = models.CharField(
-        max_length=10,
-        choices=trangthaitour_choices,
-        default="Chưa đi",
-        verbose_name="Trạng thái"
+        max_length=10
     )
 
 	maphuongtien = models.ForeignKey(
@@ -200,8 +192,26 @@ class Tour(models.Model):
 		verbose_name="Phương tiện"
 		)
 
+	imgpath = models.CharField(
+		max_length=50,
+		verbose_name="Đường dẫn hình"
+		)
+
 	def  __str__(self):
 		return self.tentour
+
+	def clean(self):
+		if self.ngayketthuc < self.ngaybatdau:
+			raise ValidationError('Ngày kết thúc không hợp lệ')
+
+	def save(self, *args, **kwargs):
+		if timezone.now() < self.ngaybatdau:
+			self.trangthai = "Chưa đi"
+		if timezone.now() >= self.ngaybatdau and timezone.now() <= self.ngayketthuc:
+			self.trangthai = "Đang đi"
+		if timezone.now() > self.ngayketthuc:
+			self.trangthai = "Đã đi"
+		super(Tour, self).save(*args, **kwargs)
 
 class LoaiTour_Tour(models.Model):
 	tour = models.ForeignKey(

@@ -5,7 +5,7 @@ from .models import DiaDiem, Tour, LoaiTour, PhuongTienDiChuyen, LoaiTour_Tour
 
 # DiaDiem
 class DiaDiemAdmin(admin.ModelAdmin):
-    list_display = ('tendiadiem', 'mota', 'imgpath')
+    list_display = ('tendiadiem', 'mota')
     exclude = ['madiadiem']
     search_fields = ['tendiadiem']
     list_filter = ('tendiadiem',)
@@ -14,13 +14,13 @@ admin.site.register(DiaDiem, DiaDiemAdmin)
 
 # Tour
 class TourAdmin(admin.ModelAdmin):
-    list_display = ('tentour', 'madiadiemdi', 'madiadiemden', 'ngaybatdau', 'ngayketthuc', 'trangthai', 'maphuongtien')
-    fields = ['matour', 'tentour', ('madiadiemdi', 'madiadiemden'), ('ngaybatdau', 'ngayketthuc'), 'nhanvien','trangthai', 'maphuongtien']
-    search_fields = ['tentour', 'ngaybatdau', 'ngayketthuc', 'trangthai']
-    list_filter = ('tentour', 'madiadiemdi', 'madiadiemden', 'trangthai',
-    	'loaitour', 'nhanvien', 'ngaybatdau', 'ngayketthuc', 'maphuongtien')
-    ordering = ('tentour', 'madiadiemdi', 'madiadiemden', 'trangthai',
-		'loaitour', 'nhanvien', 'ngaybatdau', 'ngayketthuc', 'maphuongtien')
+    list_display = ('tentour', 'madiadiemdi', 'madiadiemden', 'ngaybatdau', 'ngayketthuc', 'maphuongtien', 'imgpath')
+    fields = ['matour', 'tentour', ('madiadiemdi', 'madiadiemden'), ('ngaybatdau', 'ngayketthuc'), 'nhanvien', 'maphuongtien', 'imgpath']
+    search_fields = ['tentour', 'ngaybatdau', 'ngayketthuc', 'imgpath']
+    list_filter = ('tentour', 'madiadiemdi', 'madiadiemden', 'loaitour', 
+        'nhanvien', 'ngaybatdau', 'ngayketthuc', 'maphuongtien', 'imgpath')
+    ordering = ('tentour', 'madiadiemdi', 'madiadiemden','loaitour', 
+        'nhanvien', 'ngaybatdau', 'ngayketthuc', 'maphuongtien', 'imgpath')
 admin.site.register(Tour, TourAdmin)
 
 # LoaiTour
