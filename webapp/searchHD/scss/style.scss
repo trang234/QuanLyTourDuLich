@@ -1,0 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald);
+
+body {
+	background: #FF7473;
+}
+
+$border-out: .4rem solid #495564;
+$border-in: .3rem solid #495564;
+$border-round: 50%;
+
+.window {
+	width: 20rem;
+	height: 13rem;
+	background-color: #FFF1BA;
+	border-radius: 1rem;
+	border: $border-out;
+	text-align: center;
+	margin: 5rem auto;
+	overflow: hidden;
+}
+.bar {
+	width: inherit;
+	height: 2rem;
+	background-color: #B2F9FF;
+	border-bottom: $border-out;
+}
+.button {
+	position: relative;
+	top: .4rem;
+	left: .4rem;
+	width: .5rem;
+	height: .5rem;
+	background-color: tomato;
+	border-radius: 50%;
+	border: $border-out;	
+	
+	&:before {
+		@extend .button;
+		content: "";
+		display: block;
+		top: -.4rem;
+		left: 1rem;
+		background-color: #EDD47B;
+	}
+	&:after {
+		@extend .button;
+		content: "";
+		display: block;
+		top: -1.65rem;
+		left: 2.35rem;
+		background-color: #6AD8AC;
+	}
+}
+
+.search { 
+	padding-top: 10%;
+	
+	&:before, &:after {
+		content: "";
+		display: block;
+		border-radius: $border-round;
+		border: $border-in;
+		animation: zoom 1s 1;
+	}
+	
+	&:before {
+		position: relative;
+		top: 2.3rem;
+		left: 4rem;
+		width: 1rem;
+		height: 1rem;
+	}
+	&:after {
+		position: relative;
+		top: -1.7rem;
+		left: 4.5rem;
+		width: .02em;
+		height: .02rem;
+		animation: zoom2 .6s 1, spin .6s .6s linear 1;
+		transform: translate(.9rem, .6rem);
+	}
+}
+input {
+	width: 14rem;
+	height: 3rem;
+	border-radius: 3rem;
+	border: $border-in;
+	padding-left: 4rem;
+	font: 1.5rem "Oswald", sans-serif;
+	outline: none;
+}
+
+@keyframes zoom {
+	0% { transform: scale(1.4);	}
+	50% {	transform: scale(2); }
+	100% { transform: scale(1);	}
+}
+
+@keyframes zoom2 {
+	0% {  
+		transform: translate(.9rem, .6rem), scale(2.4) }
+	50% {	transform: translate(.9rem, .6rem), scale(2); }
+	100% { transform: translate(.9rem, .6rem), scale(1);	}
+}
+
+@keyframes spin {
+	from { transform: rotate(0deg) translateX(1rem) rotate(0deg); }
+	to { transform: rotate(379deg) translateX(1rem) rotate(-379deg); }
+}

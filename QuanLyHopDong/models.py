@@ -60,6 +60,7 @@ class HopDong(models.Model):
     
     
     def __str__(self):
-        return ('%s' % self.mahopdong + " - " + self.trangthaihopdong )
+        # return ('%s' % self.mahopdong + " - " + self.trangthaihopdong )
+        return ('%s' % self.mahopdong)
 
     
