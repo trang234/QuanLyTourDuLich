@@ -17,7 +17,7 @@ from .models import HopDong
 #     search_fields = ('title', 'author__name', 'comments__text', )
 
 class SearchHopDongAdmin(admin.ModelAdmin):
-    # fields = ['mahopdong','ngayhethang', 'ngayki','giatrihopdong','noidunghopdong','trangthaihopdong'] 
+    fields = ['mahopdong','ngayhethang', 'ngayki','giatrihopdong','noidunghopdong','manhanvien','makhachhang','matour'] 
     search_fields = ['mahopdong']
 
 admin.site.register(HopDong, SearchHopDongAdmin)
