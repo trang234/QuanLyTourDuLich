@@ -177,13 +177,15 @@ Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdate
                     <td></td>
                     <td></td>
                 </tr>
+                {% for user in Users %}
                 <tr>
                     <td style="vertical-align: middle; text-align: right"></td>
                     <td style="vertical-align: middle; text-align: right">Mã tour :</td>
                     <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
-                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; text-decoration: none;"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; text-decoration: none;">{{user.matour}}</td>
                     <td></td>
                 </tr>
+                {% endfor %}
                 <tr>
                     <td style="vertical-align: middle; text-align: right"></td>
                     <td style="vertical-align: middle; text-align: right">Tên tour : </td>

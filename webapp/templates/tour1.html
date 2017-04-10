@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 {% load staticfiles %}
 <html lang="vn">
@@ -172,25 +171,43 @@ Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', ['tUpdate
                     <td></td>
                     <td></td>
                 </tr>
-                 {% for user in Users %}
+                {% for user in Users %}
                 <tr>
                  
                     <td style="vertical-align: middle; text-align: right"></td>
                     <td style="vertical-align: middle; text-align: right">Mã tour :</td>
                     <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
                      
-                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; text-decoration: none;" >{{user.madiadiem}}</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; text-decoration: none;" >{{user.matour}}</td>
                     <td></td>
                 </tr>
                 <tr>
                     <td style="vertical-align: middle; text-align: right"></td>
                     <td style="vertical-align: middle; text-align: right">Tên tour : </td>
                     <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
-                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; color: #0000CC;">{{user.tendiadiem}}</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; color: #0000CC;">{{user.tentour}}</td>
                     <td></td>
                 </tr>
-                	 {% endfor %}
+                {% endfor %}	
                     
+
+               <!--  <tr>
+                 
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Mã tour :</td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
+                     
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; text-decoration: none;" >{{Users.matour}}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="vertical-align: middle; text-align: right"></td>
+                    <td style="vertical-align: middle; text-align: right">Tên tour : </td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px"></td>
+                    <td style="vertical-align: middle; text-align: left; padding: 7px; font-weight: bold; color: #0000CC;">{{Users.tentour}}</td>
+                    <td></td>
+                </tr> -->
+               	
                 <tr>
                     <td style="vertical-align: middle; text-align: right"></td>
                     <td style="vertical-align: middle; text-align: right">Tiêu chuẩn : </td>
