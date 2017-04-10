@@ -30,4 +30,7 @@ def tour1(request,matour):
     return render(request,"tour1.html",context)
 def tour(request):
     return render(request,"dattour.html",{})
+def mientay(request):
+    return render(request,"mientay.html",{})
+
 
