@@ -14,4 +14,5 @@ class NhanVienAdmin(admin.ModelAdmin):
 	list_display = (
 		'manhanvien','tennhanvien','cmnd', 'ngaysinh',
 		'gioitinh', 'diachi', 'sodienthoai', 'chucvu', 'tendangnhap','maphongban')
+	search_fields = ['manhanvien','tennhanvien', 'cmnd', 'sodienthoai']
 admin.site.register(NhanVien, NhanVienAdmin)

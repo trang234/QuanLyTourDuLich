@@ -7,6 +7,11 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth import get_user_model
 
+from django.core.exceptions import ValidationError
+from django.core.validators import MinLengthValidator
+from django.core.validators import MaxLengthValidator
+
+from django.http import HttpResponse, HttpResponseNotFound
 
 
 # Create your models here.
@@ -23,6 +28,9 @@ class PhongBan(models.Model):
     def __str__(self):
         return self.maphongban + " " +self.tenphongban
 
+    def clean(self):
+        if len(self.maphongban) !=5:
+            raise ValidationError(_('Mã phòng ban phải có 5 ký tự.'))
 
 class NhanVien(models.Model):
     manhanvien = models.CharField(
@@ -34,8 +42,14 @@ class NhanVien(models.Model):
         max_length=50, 
         verbose_name="Họ tên")
 
-    cmnd = models.PositiveIntegerField(
+    # cmnd = models.BigIntegerField(
+    #     verbose_name="CMND",
+    #     validators=[MaxLengthValidator(12),MinLengthValidator(9)],
+    #     unique=True)
+
+    cmnd = models.CharField(
         verbose_name="CMND",
+        max_length=12, 
         unique=True)
 
     ngaysinh = models.DateField(verbose_name="Ngày sinh")
@@ -53,7 +67,9 @@ class NhanVien(models.Model):
         max_length=50, 
         verbose_name="Địa chỉ ")
 
-    sodienthoai = models.PositiveIntegerField(verbose_name="SĐT")
+    sodienthoai = models.CharField(
+        verbose_name="SĐT",
+        max_length=11)
 
     CHUC_VU_CHOICE=(
         ('TRUONG_PHONG','Trưởng phòng'),
@@ -81,5 +97,28 @@ class NhanVien(models.Model):
 
     def __str__(self):
         return self.manhanvien + " " + self.tennhanvien
+
+
+    def clean(self):
+        if len(self.cmnd) <= 8:
+             raise ValidationError(_('CMND có 9 hoặc 12 ký tự.'))
+        elif len(self.cmnd) >= 10 and len(self.cmnd) <= 11:
+             raise ValidationError(_('CMND có 9 hoặc 12 ký tự.'))
+      
+        if len(self.sodienthoai) <= 9:
+            raise ValidationError(_('SĐT phải có 10 hoặc 11 số'))
+
+        if len(self.manhanvien)!=5:
+            raise ValidationError(_('Mã nhân viên phải có 5 ký tự.'))
+        
+
+    # def save(self, *args, **kwargs):
+    #     if self.sodienthoai < 1 or self.cmnd < 1:
+    #         #self.erroreturn HttpResponse('<h1>Page was found</h1>')r_messages={'Error': 'Your custom error message'}
+    #         print('Số điện thoại không âm hoặc CMND không âm.')
+    #         #raise ValidationError('The pools are all full.')
+    #     # elif self.tendiadiem == "Hà Nội":
+    #     #     self.madiadiem = 'DD009'
+    #     super(NhanVien, self).save(*args, **kwargs)
 
 
