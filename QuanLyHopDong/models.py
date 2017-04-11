@@ -16,20 +16,6 @@ class HopDong(models.Model):
         verbose_name="Mã Hợp đồng",
         primary_key=True)
     
-    manhanvien = models.ForeignKey(NhanVien,  
-        verbose_name = "Mã NV",
-        on_delete = models.CASCADE)
-
-
-    # makhachhang = models.ForeignKey(KhachHang,
-    #     related_name='khachhangkihopdong', 
-    #     verbose_name="Mã KH",
-    #     on_delete=models.CASCADE)
-
-    # matour = models.ForeignKey(Tour,
-    #     related_name='matourdat', 
-    #     verbose_name="Mã Tour",
-    #     on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         ''' On save, update timestamps '''
@@ -44,26 +30,37 @@ class HopDong(models.Model):
 
     noidunghopdong = models.CharField(max_length=200,verbose_name="Nội Dung Hợp đồng", null = True)
 
-    # DD, DK, TPX = 0, 1, 2
-    tour = Tour(models.Model)
-
-    trangthaitour =  getattr(tour, "trangthai") 
-
     trangthaihopdong = models.CharField(
-        max_length=20,
-        default="Đang duyệt",
-        verbose_name="Trạng thái")
+        max_length=10
+    )
 
+    manhanvien = models.ForeignKey(NhanVien,
+        related_name='manhanvienlaphopdong',  
+        verbose_name = "Mã NV",
+        on_delete=models.CASCADE)
+
+    makhachhang = models.ForeignKey(KhachHang,
+        related_name='khachhangkihopdong', 
+        verbose_name="Mã KH",
+        on_delete=models.CASCADE)
+
+    matour = models.ForeignKey(Tour,
+        related_name='matourdat', 
+        verbose_name="Mã Tour",
+        on_delete=models.CASCADE)
+
+    
     def save(self, *args, **kwargs):
-        if trangthaitour == "Đã đi":
+        if (Tour.objects.filter( trangthai = "Đã đi")):
             self.trangthaihopdong = 'Thu phí xong'
-        elif trangthaitour == "Chưa đi":
+        elif (Tour.objects.filter( trangthai = "Chưa đi")) :
             self.trangthaihopdong = 'Đã ký'
         super(HopDong, self).save(*args, **kwargs)
 
     
     
     def __str__(self):
-        return ('%s' % self.mahopdong + " - " + self.trangthaihopdong )
+        # return ('%s' % self.mahopdong + " - " + self.trangthaihopdong )
+        return ('%s' % self.mahopdong)
 
     

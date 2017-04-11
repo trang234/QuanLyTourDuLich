@@ -20,6 +20,7 @@
 		$(document).ready(function(){
 			$().UItoTop({ easingType: 'easeOutQuart' });
 		});
+
 		</script>
 		<!--[if lt IE 8]>
 		<div style=' clear: both; text-align:center; position: relative;'>
@@ -59,28 +60,55 @@
 						</a>
 					</h1>
 				</div>
+
 			</div>
 		</header>
 <!--==============================Content=================================-->
 		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
 			
 			<div class="container_12">
-				<div class="banners">
+			<div class="search-wrapper">
+				<form  id="searchform" method="get">
+				<input type="text" name="focus" id="myInput" onkeyup="myFunction()" required class="search-box" placeholder="Tìm kiếm Tour" />
+					<button class="close-icon" type="reset"></button>
+				</form>
+			</div>
+			<div class="banners" >
 				{% for user in Users %}
-					<div class="grid_4">
-					     <div class="banner" >
+					<div class="grid_4" id="myUL" >
+					     <div class="banner">
 	                         <img src="{% static user.imgpath %}" alt="">
-	                         <div class="label">
-								<div class="title">{{ user.tendiadiem }}</div>
+	                         <div class="label" >
+								<ul class="title">{{ user.tentour }}</ul>
 								<div class="price">from<span>$ 1.200</span></div>
-								<a href="{% url 'tour1.html' user.madiadiem %}">LEARN MORE</a>
+								<div>
+								<a href="{% url 'mientay.html' %}">Chi tiết</a>
+								<a href="{% url 'tour1.html' user.matour %}">Đặt Tour</a>
+								</div>
 							</div>
-							
 						</div>
 
 					</div>
 					{% endfor %}
-					
+					<script>
+					function myFunction() {
+					    var input, filter, ul, li, a, i;
+					    input = document.getElementById("myInput");
+					    filter = input.value.toUpperCase();
+					    ul = document.getElementById("myUL");
+					    li = ul.getElementsByTagName("div");
+					    for (i = 0; i < li.length; i++) {
+					        a = li[i].getElementsByTagName("ul")[0];
+					        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+					            li[i].style.display = "";
+					        } else {
+					            li[i].style.display = "none";
+
+					        }
+					    }
+					}
+					</script>
+										
 					<div class="clear"></div>
 					
 				</div>

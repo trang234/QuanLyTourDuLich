@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vn">
 	<head>
@@ -50,6 +49,19 @@
 				});
 			$().UItoTop({ easingType: 'easeOutQuart' });
 			});
+			$(document).ready(function () {
+		    $('.nav ul li:first').addClass('active');
+		    $('.tab-content:not(:first)').hide();
+		    $('.nav ul li a').click(function (event) {
+	        event.preventDefault();
+	        var content = $(this).attr('href');
+	        $(this).parent().addClass('active');
+	        $(this).parent().siblings().removeClass('active');
+	        $(content).show();
+	        $(content).siblings('.tab-content').hide();
+    });
+});
+
 		</script>
 		<!--[if lt IE 8]>
 		<div style=' clear: both; text-align:center; position: relative;'>
@@ -84,8 +96,7 @@
 				<div class="grid_12">
 					<h1>
 						<a href="{% url 'index.html' %}">
-					
-							<img src="static/images.logo.png" alt="Your Happy Family">
+					    <img src="static/images.logo.png" alt="Your Happy Family">
 						</a>
 					</h1>
 				</div>
@@ -103,7 +114,7 @@
 						<a href="#">LEARN MORE</a>
 					</div>
 				</div>
-				<div data-src="static/images/slide1.jpg">
+				<div data-src="static/images/h1.jpg">
 					<div class="caption fadeIn">
 						<h2>Maldives</h2>
 						<div class="price">
@@ -128,198 +139,31 @@
 <!--==============================Content=================================-->
 		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
 			<div class="container_12">
-				<div class="grid_4">
-					<div class="banner">
-						<img src="static/images/ban_img1.jpg" alt="">
-						<div class="label">
-							<div class="title">Barcelona</div>
-							<div class="price">FROM<span>$ 1000</span></div>
-							<a href="#">LEARN MORE</a>
-						</div>
-					</div>
-				</div>
-				<div class="grid_4">
-					<div class="banner">
-						<img src="static/images/ban_img2.jpg" alt="">
-						<div class="label">
-							<div class="title">GOA</div>
-							<div class="price">FROM<span>$ 1.500</span></div>
-							<a href="#">LEARN MORE</a>
-						</div>
-					</div>
-				</div>
-				<div class="grid_4">
-					<div class="banner">
-						<img src="static/images/ban_img3.jpg" alt="">
-						<div class="label">
-							<div class="title">PARIS</div>
-							<div class="price">FROM<span>$ 1.600</span></div>
-							<a href="#">LEARN MORE</a>
-						</div>
-					</div>
-				</div>
-			<div class="grid_5 prefix_1">
-      
-		<div id="left-intro">
-		<ul id="menu">
-                <a href="/thu-ngo.html" target="_self"><span class="LeftBg"><span class="RightBg">Thư ngỏ</span></span></a>
-                <ul>
-		</ul>
-
-                <a href="/gioi-thieu-chung.html" target="_self"><span class="LeftBg"><span class="RightBg">Giới thiệu chung</span></span></a>
-                <ul>
-		</ul>
-
-                <a href="/tam-nhin-su-menh.html" target="_self"><span class="LeftBg"><span class="RightBg">Tầm nhìn sứ mệnh</span></span></a>
-                <ul>
-		</ul>
-
-                <a href="/co-cau-to-chuc.html" target="_self"><span class="LeftBg"><span class="RightBg">Cơ cấu tổ chức</span></span></a>
-                <ul>
-		</ul>
-
-                <a href="/y-nghia-logo.html" target="_self"><span class="LeftBg"><span class="RightBg">Ý nghĩa logo</span></span></a>
-                <ul>
-		</ul>
-
-                <a href="/giai-thuong.html" target="_self"><span class="LeftBg"><span class="RightBg">Giải thưởng</span></span></a>
-                <ul>
-		</ul>
-
-            </ul>
-</div>
-
-            <div id="right-intro">
-            
-	
-		<title></title>
-	
-	
-		<div class="subpage-title">
-			Giới thiệu chung</div>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Tên Việt Nam: CÔNG TY CỔ PHẦN DỊCH VỤ DU LỊCH BẾN THÀNH</strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Tên Tiếng Anh: BENTHANH TOURIST</strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Tên Thương hiệu: BENTHANH TOURIST</strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Thành lập: Ngày 9/12/1989.</strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Vốn điều lệ: 250.000.000.000 VNĐ</strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Nhân sự: 400 người</strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Tổng Giám Đốc: Ông VŨ ĐÌNH QUÂN.</strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Trụ sở chính: 82 Calmette, Phường Nguyễn Thái Bình Q.1, TPHCM</strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Điện thoại: 84.8.3822 7788</strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Fax: 84.8.3829 5060</strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Email: benthanh@benthanhtourist.com</strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Website: <span style="color: rgb(0, 0, 255);"><a href="http://www.benthanhtourist.com.vn">www.benthanhtourist.com</a>&nbsp;</span></strong></p>
-		<p>
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Lĩnh vực hoạt động :</strong></p>
-		<p style="margin-left:.75in;">
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tổ chức các tour du lịch trong nước &amp; quốc tế.</p>
-		<p style="margin-left:.75in;">
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tổ chức các hội nghị - hội thảo - sự kiện kết hợp du lịch.</p>
-		<p style="margin-left:.75in;">
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Vận chuyển du lịch, đại lý hàng không.</p>
-		<p style="margin-left:.75in;">
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Nhà hàng, khách sạn, bar, karaoke.</p>
-		<p style="margin-left:.75in;">
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Dịch vụ kiều hối, vàng bạc đá quý.</p>
-		<p style="margin-left:.75in;">
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thương mại -xuất nhập khẩu.</p>
-		<p style="margin-left:.75in;">
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hoạt động đầu tư : văn phòng cho thuê, đầu tư trong nước và liên doanh đầu tư với nước ngoài.</p>
-		<p>
-			&nbsp;<strong>Thành viên của :</strong></p>
-		<p style="margin-left: 0.75in;">
-			· &nbsp; &nbsp; &nbsp; &nbsp; Tổng Công ty Bến Thành - Benthanh Group</p>
-		<p style="margin-left: 0.75in;">
-			· &nbsp; &nbsp; &nbsp; &nbsp; Phòng Thương mại và Công nghiệp Việt Nam - VCCI.</p>
-		<p style="margin-left: 0.75in;">
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hiệp hội du lịch Việt Nam - VITA.</p>
-		<p style="margin-left: 0.75in;">
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hiệp hội du lịch Châu Á Thái Bình Dương - PATA.</p>
-		<p style="margin-left: 0.75in;">
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hiệp hội du lịch Nhật Bản - JATA.</p>
-		<p style="margin-left: 0.75in;">
-			·&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hiệp hội Du Lịch Hoa Kỳ - ASTA.</p>
-	
-
-
-            </div>
-	</div>
-
-    <div id="grandFooter" class="fixRow">
-
-	<meta name="google-site-verification" content="UNNzVQfuKEWVH0XqOJLqV3VZiGdlf4DD_Gfik0TwWto">
-		
-	
-	
-	
-
-
-
-	<p>
-		<strong>CÔNG TY CỔ PHẦN DỊCH VỤ DU LỊCH BẾN THÀNH (BENTHANH TOURIST)</strong><br>
-		Trụ sở chính: 82 Calmette, P. Nguyễn Thái Bình, Q.1, TP. Hồ Chí Minh<br>
-		Điện thoại: 08.3822 7788 - Fax: 08.3829 5060<br>
-		Email: benthanh@benthanhtourist.com<br>
-		<strong><span style="color:#FF0000;">© 2015 Bản quyền thuộc về BenThanh Tourist&nbsp; </span>|</strong> Website <strong>benthanhtourist.com</strong> đã được đăng ký với Bộ Công thương</p>
-
-
-
-                    </div>
-                    <div id="logoLink">
-                    		<div class="col-left"><img src="/images/icon_2016/ASTA.png"></div>
-                         	<div class="col-center"><img src="/images/icon_2016/123Pay_Visa_Master.png"></div>
-                         	<div class="col-right">Kết nối với chúng tôi: <a href="http://facebook.com/benthanhtourist" target="_blank"><img style="padding-right:10px;" src="/images/icon_2016/Facebook_ChanTrang.png"></a><a href="https://www.youtube.com/channel/UCBdze9CCUlUn-miYqX6Am4A/" target="_blank"><img style="padding-right:10px;" src="/images/icon_2016/Youtube_ChanTrang.png"></a><a href="https://plus.google.com/u/0/112991695970558221701/posts" target="_blank"><img src="/images/icon_2016/GooglePlus_ChanTrangl.png"></a></div>
-                    </div>
-                <div id="footerPanel" class="icon-BenThanhMarket PCOnly"></div>
-        </div>
-
-
-
-<div id="topcontrol" title="Lên đầu trang" style="position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer; z-index: 10000;"><img src="https://benthanhtourist.com/images/icon_2016/top.png" style="width:32px; height:32px"></div><iframe id="sbzstorage_frame" src="https://static.subiz.com/cross-storage.html" style="display: none; position: absolute; top: -999px; left: -999px;"></iframe><div class="sbzon" style="display: none; margin: 0px; padding: 0px; border: 0px; background-color: rgba(0, 0, 0, 0); z-index: 16000001; position: fixed; bottom: 0px; overflow: hidden; left: 10px;"><iframe id="sbzon_frame" frameborder="0" style="background-color: transparent; vertical-align: text-bottom; position: relative; width: 100%; height: 100%; margin: 0px; overflow: hidden;" src="javascript:false"></iframe></div><div class="sbzoff" style="display: block; margin: 0px; padding: 0px; border: 0px; background-color: rgba(0, 0, 0, 0); z-index: 16000001; position: fixed; bottom: 0px; overflow: hidden; left: 10px; width: 307.375px; height: 56px;"><iframe id="sbzoff_frame" frameborder="0" style="background-color: transparent; vertical-align: text-bottom; position: relative; width: 100%; height: 100%; margin: 0px; overflow: hidden;" src="javascript:false"></iframe></div></body>
-				</div>
-				<div class="grid_12">
-					<h3 class="head1">Latest News</h3>
-				</div>
-				<div class="grid_4">
-					<div class="block1">
-						<time datetime="2014-01-01">10<span>Jan</span></time>
-						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">Aliquam nibh</a></div>
-							Proin pharetra luctus diam, any scelerisque eros convallisumsan. Maecenas vehicula egestas
-						</div>
-					</div>
-				</div>
-				<div class="grid_4">
-					<div class="block1">
-						<time datetime="2014-01-01">21<span>Jan</span></time>
-						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">Etiam dui eros</a></div>
-							Any scelerisque eros vallisumsan. Maecenas vehicula egestas natis. Duis massa elit, auctor non
-						</div>
-					</div>
-				</div>
-				<div class="grid_4">
-					<div class="block1">
-						<time datetime="2014-01-01">15<span>Feb</span></time>
-						<div class="extra_wrapper">
-							<div class="text1 col1"><a href="#">uamnibh Edeto</a></div>
-							Ros convallisumsan. Maecenas vehicula egestas venenatis. Duis massa elit, auctor non
-						</div>
-					</div>
-				</div>
+				
+			<div class="nav"><br/>
+		    <ul>
+		        <li style="font-size: 15px;" class="selected"><a href="#section-london">Lời ngỏ</a></li>
+		        <li style="font-size: 15px;"><a href="#section-paris">Thành phần tham gia</a></li>
+		    </ul>
 			</div>
+			<div id="section-london" class="tab-content">
+			<h1 style="font-weight:bold;font-size:20px;color:#1A8DA9">Lời ngỏ</h1>
+			   <p>
+				<span style="font-size:14px;"><span style="">Công ty Cổ Phần Dịch Vụ Du Lịch HappyTravel xin gởi lời chào trân trọng đến Quý khách hàng và đối tác. Kính chúc Quý khách hàng luôn dồi dào sức khỏe, thành đạt và thịnh vượng.</span></span></p>
+			<p>
+				<span style="font-size:14px;"><span style="">Được thành lập năm 1988, với gần 30 năm hoạt động, Cholontourist hoạt động trên nhiều lĩnh vực như: nhà hàng, khách sạn, thương mại, các dịch vụ vui chơi giải trí, bất động sản, đặc biệt thương hiệu Cholontourist đã được khẳng định và trở thành một trong những thương hiệu hàng đầu của Việt Nam trong lĩnh vực du lịch lữ hành.</span></span></p>
+			<p>
+				<span style="font-size:14px;"><span style="">Với phương châm “ Chất lượng là hàng đầu – khách hàng là Thượng đế” cùng chiến lược đa dạng hóa sản phẩm có chọn lọc, Công ty Cổ Phần Dịch Vụ Du Lịch Chợ Lớn luôn cam kết mang đến cho Quý khách hàng và đối tác các dịch vụ chất lượng và lợi ích tốt nhất, cùng với đội ngũ nhân viên được đào tạo chuyên nghiệp và có kinh nghiệm trong lĩnh vực dịch vụ- du lịch.</span></span></p>
+			<p>
+			</div>
+			<div id="section-paris" class="tab-content">
+			    <h1 style="font-weight:bold;font-size:20px;color:#1A8DA9">Thành phần tham gia</h1>
+			    <p style="padding-top:5px">Trần Thị Ngọc Trang</p>
+			    <p>Nguyễn Thu Hằng</p>
+			    <p>Bùi Nguyễn Kim Ngân</p>
+                <p>Phan Thị Hồng Hà</p>
+			</div>
+			
 		</div>
 <!--==============================footer=================================-->
 		<footer>

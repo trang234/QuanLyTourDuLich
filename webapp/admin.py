@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Tour
-from .models import DiaDiem
-# Register your models here.
-admin.site.register(Tour)
-admin.site.register(DiaDiem)
+# from QuanLyTour.models import DiaDiem,Tour,LoaiTour_Tour
+
+# # Register your models here.
+# admin.site.register(Tour)
+# admin.site.register(DiaDiem)
 

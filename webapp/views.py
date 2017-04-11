@@ -1,14 +1,15 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.db import models
 
-from .models import DiaDiem,Tour
+from QuanLyTour.models import DiaDiem,Tour,LoaiTour_Tour
 
 # Create your views here.
 def index(request):
      return render(request,"index.html",{})
 
 def contact(request):
-    Users = DiaDiem.objects.all()
+    Users = Tour.objects.all()
     context = {
         'Users':Users,
         }
@@ -19,13 +20,17 @@ def index3(request):
     return render(request,"index-3.html",{})
 def index4(request):
     return render(request,"index-4.html",{})
-def tour1(request,madiadiem):
-    madiadiem= DiaDiem.objects.get(madiadiem=madiadiem)
-    Users = DiaDiem.objects.raw('SELECT madiadiem,tendiadiem FROM webapp_diadiem where madiadiem = %s',[madiadiem])
+def tour1(request,matour):
+    # matour= Tour.objects.get(matour = matour)
+    # Users = Tour.objects.raw('SELECT * FROM QuanLyTour_tour where matour = %s',[matour])
+    Users=Tour.objects.filter(matour=matour)
     context = {
         'Users':Users, 
         }
-    return render (request,"tour1.html",context)
+    return render(request,"tour1.html",context)
 def tour(request):
     return render(request,"dattour.html",{})
+def mientay(request):
+    return render(request,"mientay.html",{})
+
 
