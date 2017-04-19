@@ -1,6 +1,6 @@
 from django.db import models
-from django.http import HttpResponse
-from QuanLyTour.models import Tour, LoaiTour_Tour
+from django.http import HttpResponse, HttpRequest
+from QuanLyTour.models import Tour, DatTour
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
 
@@ -126,34 +126,58 @@ class DatVe(models.Model):
 
     tennhanvien = models.CharField(
         max_length=50,
-        verbose_name="Tên nhân viên ",
-        # default=request.user.get_username()
+        verbose_name="Tên nhân viên "
+        )
+
+    soluongvecon = models.PositiveIntegerField(
+        default = 0,
+        verbose_name="Số lượng vé còn lại"
+        )
+
+    soluongvedadangky = models.PositiveIntegerField(
+        default = 1,
+        verbose_name="Số lượng vé đã đăng ký"
         )
 
     soluongvedat = models.PositiveIntegerField(
         default=0,
-        verbose_name="Số lượng vé ")
+        verbose_name="Số lượng vé đặt")
 
     '''Get tour price'''
-    def get_tour_price():
-        # tour = DatVe._meta.get_field_by_name('matour')
-        giave = LoaiTour_Tour.objects.values_list('giave', flat=True).get(tour="T0001")
-        # soluongve = DatVe.objects.filter('soluongvedat')
-        # soluongve = 3
-        # soluongve = DatVe._meta.get_field('soluongvedat')
-        # sotienphaitra = soluongve * giave
+    # dè get_tour_price():
+    #     #tour = DatVe._meta.get_field_by_name('matour')
+    #     # giave = LoaiTour_Tour.objects.values_lít('giave', flat=True).get(tour="T0001")
+    #     # soluongve = DatVe.objects.filter('soluongvedat')
+    #     # soluongve = 3
+    #     # soluongve = DatVe._meta.get_field('soluongvedat')
+    #     # sotienphaitra = soluongve * giave
 
-        #soluongve = DatVe._meta.get_field_by_name('soluongvedat')
-        sotienphaitra = giave * self.soluongvedat
+    #     #soluongve = DatVe._meta.get_field_by_name('soluongvedat')
+    #     sotienphaitra = giave * self.soluongvedat
 
-        return sotienphaitra
+    #     return sotienphaitra
 
     # def get_thanh_tien():
     #   return 20;
 
 
     thanhtien = models.FloatField(
-        # default=property(get_tour_price),
-         default=0,
-        #default=get_tour_price,
-        verbose_name="Thành tiền")
+        verbose_name="Thành tiền"
+        )
+
+    def save(self, *args, **kwargs):
+        '''giatien'''
+        tentour = self.matour
+        print(tentour)
+        matour = Tour.objects.values_list('matour', flat=True).get(tentour=tentour)
+        print(matour)
+        giave = DatTour.objects.values_list('giave', flat=True).get(tour=self.matour)
+        print(giave)
+        self.thanhtien = self.soluongvedat * giave
+
+        '''soluongvecon'''
+        luongve = DatTour.objects.values_list('luongve', flat=True).get(tour=tentour)
+        self.soluongvedadangky += self.soluongvedat
+        self.soluongvecon = luongve - self.soluongvedadangky
+
+        super(DatVe, self).save(*args, **kwargs)

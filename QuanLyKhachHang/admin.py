@@ -18,6 +18,7 @@ admin.site.register(PhuLucKhachHang, PhuLucKhachHangAdmin)
 
 class DatVeAdmin(admin.ModelAdmin):
 	list_display = (
-		'matour','makhachhang', 'tennhanvien', 'soluongvedat', 'thanhtien')
+		'matour','makhachhang', 'tennhanvien', 'soluongvecon', 
+		'soluongvedadangky', 'soluongvedat', 'thanhtien')
 	readonly_fields = ["thanhtien"]
 admin.site.register(DatVe, DatVeAdmin)

@@ -173,7 +173,7 @@ class Tour(models.Model):
 
 	loaitour = models.ManyToManyField(
 		LoaiTour, 
-		through='LoaiTour_Tour',
+		through='DatTour',
 		verbose_name="Loại tour"
 		)
 
@@ -201,8 +201,10 @@ class Tour(models.Model):
 		return self.tentour
 
 	def clean(self):
-		if self.ngayketthuc < self.ngaybatdau:
+		if self.ngayketthuc <= self.ngaybatdau:
 			raise ValidationError('Ngày kết thúc không hợp lệ')
+		if self.madiadiemdi == self.madiadiemden:
+			raise ValidationError('Địa điểm đi và địa điểm đến không được trùng nhau')
 
 	def save(self, *args, **kwargs):
 		if timezone.now() < self.ngaybatdau:
@@ -213,7 +215,7 @@ class Tour(models.Model):
 			self.trangthai = "Đã đi"
 		super(Tour, self).save(*args, **kwargs)
 
-class LoaiTour_Tour(models.Model):
+class DatTour(models.Model):
 	tour = models.ForeignKey(
 		Tour, 
 		on_delete=models.CASCADE,
@@ -224,6 +226,10 @@ class LoaiTour_Tour(models.Model):
 		LoaiTour, 
 		on_delete=models.CASCADE,
 		verbose_name="Loại tour"
+		)
+
+	luongve = models.PositiveIntegerField(
+		verbose_name="Lượng vé"
 		)
 
 	giave = models.FloatField(

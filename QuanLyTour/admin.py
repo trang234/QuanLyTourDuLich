@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import DiaDiem, Tour, LoaiTour, PhuongTienDiChuyen, LoaiTour_Tour
+from .models import DiaDiem, Tour, LoaiTour, PhuongTienDiChuyen, DatTour
 
 # Register your models here.
 
@@ -40,10 +40,10 @@ class PhuongTienDiChuyenAdmin(admin.ModelAdmin):
     ordering = ('tenphuongtien', 'loaiphuongtien', 'socho',)
 admin.site.register(PhuongTienDiChuyen, PhuongTienDiChuyenAdmin)
 
-#LoaiTour_Tour
-class LoaiTour_TourAdmin(admin.ModelAdmin):
+#DatTour
+class DatTourAdmin(admin.ModelAdmin):
     list_display = ('tour', 'loaitour', 'giave',)
     search_fields = ['giave']
     list_filter = ('tour', 'loaitour', 'giave',)
-    ordering = ('tour', 'loaitour', 'giave',)
-admin.site.register(LoaiTour_Tour, LoaiTour_TourAdmin)
+    ordering = ('tour', 'loaitour', 'luongve', 'giave',)
+admin.site.register(DatTour, DatTourAdmin)
