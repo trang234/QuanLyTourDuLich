@@ -1,6 +1,7 @@
 from django.db import models
-from django.http import HttpResponse, HttpRequest
-from QuanLyTour.models import Tour, DatTour
+from django.http import HttpResponse
+from QuanLyTour.models import Tour
+from datetime import datetime  
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
 
@@ -46,6 +47,9 @@ class KhachHang(models.Model):
     tour = models.ManyToManyField(Tour, 
         through='DatVe')
 
+    def __unicode__(self):
+        return self.makhachhang
+
     def __str__(self):
         return self.makhachhang + " " + self.tenkhachhang
 
@@ -75,7 +79,8 @@ class PhuLucKhachHang(models.Model):
     cmnd = models.CharField(
         verbose_name="CMND",
         max_length=12, 
-        unique=True)
+        null=True,
+        blank=True)
 
     ngaysinh = models.DateField(
         verbose_name="Ngày sinh ")
@@ -97,20 +102,37 @@ class PhuLucKhachHang(models.Model):
         on_delete=models.CASCADE,
         verbose_name="Mã KHĐD")
 
+    def __unicode__(self):
+        return self.maphuluckhachhang
+
     def __str__(self):
         return self.maphuluckhachhang + " " + self.tenphuluckhachhang
 
-    def clean(self):
-        if len(self.cmnd) <= 8:
-             raise ValidationError(_('CMND có 9 hoặc 12 ký tự.'))
-        elif len(self.cmnd) >= 10 and len(self.cmnd) <= 11:
-             raise ValidationError(_('CMND có 9 hoặc 12 ký tự.'))
+    def save(self, *args, **kwargs):
+        old = datetime.now().year - self.ngaysinh.year
+        print(old) 
+        if int(old) <= 16 and self.cmnd is None:
+            self.cmnd = None
+        super(PhuLucKhachHang, self).save(*args, **kwargs)
 
+
+    def clean(self):
         if len(self.sodienthoai) <= 9:
             raise ValidationError(_('SĐT phải có 10 hoặc 11 số'))
 
         if len(self.maphuluckhachhang) != 5:
-             raise ValidationError(_('Mã khách hàng phụ lục phải có 5 ký tự'))
+            raise ValidationError(_('Mã khách hàng phụ lục phải có 5 ký tự'))
+
+        old = datetime.now().year - self.ngaysinh.year
+        print(old) 
+        if int(old) > 16:
+            if self.cmnd is None:
+                raise ValidationError(_('Khách hàng trên 16 tuổi phải nhập CMND'))
+            elif not (self.cmnd is None):
+                if len(self.cmnd) <=8:
+                    raise ValidationError(_('CMND có 9 hoặc 12 ký tự.'))
+                elif len(self.cmnd) >= 10 and len(self.cmnd) <= 11:
+                    raise ValidationError(_('CMND có 9 hoặc 12 ký tự.'))
 
 class DatVe(models.Model):
     matour = models.ForeignKey(Tour, 
